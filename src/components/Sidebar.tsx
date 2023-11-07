@@ -5,16 +5,16 @@ import { ISidebarIcon, sidebarIcons } from '@/utils/sidebarIcons';
 
 const Sidebar = () => {
 	return (
-		<div className="w-screen xl:h-[90vh] xl:w-[100px] bg-bgColor rounded-3xl overflow-y-scroll custom-scrollbar-hide">
-			<div className="flex xl:flex-col xl:justify-center justify-between align-middle gap-10 my-[30px]">
+		<div className=" w-screen xl:h-[90vh] xl:w-[100px] bg-bgColor rounded-3xl overflow-y-scroll custom-scrollbar-hide absolute xl:static -bottom-8">
+			<div className=" flex xl:flex-col justify-center align-middle gap-10 my-[30px]">
 				<Image
 					src={logo}
 					width={73}
 					height={73}
 					alt="logo"
-					className="mx-auto cursor-pointer hidden xl:block"
+					className=" mx-auto cursor-pointer hidden xl:block "
 				/>
-				<div className="flex xl:flex-col xl:justify-center justify-between mx-auto gap-5">
+				<div className=" flex w-full xl:w-auto xl:flex-col xl:justify-center justify-between mx-8 xl:mx-auto gap-5 ">
 					{sidebarIcons.map((icon: ISidebarIcon) => (
 						<div key={icon.id}>
 							<Image
@@ -22,7 +22,7 @@ const Sidebar = () => {
 								height={48}
 								width={48}
 								alt={icon.label}
-								className="w-full h-full cursor-pointer p-0.5 ease-in duration-100 hover:p-0 "
+								className=" w-full h-full cursor-pointer p-0.5 ease-in duration-100 hover:p-0 "
 							/>
 						</div>
 					))}
@@ -32,7 +32,7 @@ const Sidebar = () => {
 					width={73}
 					height={73}
 					alt="support_icon"
-					className="mx-auto cursor-pointer  hidden xl:block"
+					className=" mx-auto cursor-pointer hidden xl:block "
 				/>
 			</div>
 		</div>
