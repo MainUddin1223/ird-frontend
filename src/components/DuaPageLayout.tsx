@@ -1,7 +1,10 @@
+import Sidebar from '@/components/Sidebar';
+
 const DuaPageLayout = () => {
 	return (
-		<div>
-			<h1>Dua page layout</h1>
+		<div className="xl:flex m-10">
+			<Sidebar />
+			<div>content</div>
 		</div>
 	);
 };
