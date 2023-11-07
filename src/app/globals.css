@@ -17,4 +17,18 @@
 }
 body {
 	background-color: #f7f8fa;
+	overflow: hidden;
+}
+.custom-scrollbar-hide::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
+}
+
+.custom-scrollbar-hide::-webkit-scrollbar-thumb {
+	background: transparent;
+}
+
+.custom-scrollbar-hide {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
