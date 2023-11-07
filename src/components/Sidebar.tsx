@@ -5,7 +5,7 @@ import { ISidebarIcon, sidebarIcons } from '@/utils/sidebarIcons';
 
 const Sidebar = () => {
 	return (
-		<div className=" w-screen xl:h-[90vh] xl:w-[100px] bg-bgColor rounded-3xl overflow-y-scroll custom-scrollbar-hide absolute xl:static -bottom-8">
+		<div className=" w-screen xl:h-[700px] xl:w-[100px] bg-bgColor rounded-3xl overflow-y-scroll custom-scrollbar-hide absolute xl:static -bottom-8">
 			<div className=" flex xl:flex-col justify-center align-middle gap-10 my-[30px]">
 				<Image
 					src={logo}

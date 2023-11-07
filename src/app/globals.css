@@ -18,6 +18,7 @@ body {
 	background-color: #f7f8fa;
 	overflow: hidden;
 	color: #393939;
+	font-family: 'Inter', sans-serif;
 }
 .custom-scrollbar-hide::-webkit-scrollbar {
 	width: 0;
