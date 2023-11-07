@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -18,6 +17,7 @@
 body {
 	background-color: #f7f8fa;
 	overflow: hidden;
+	color: #393939;
 }
 .custom-scrollbar-hide::-webkit-scrollbar {
 	width: 0;
@@ -31,4 +31,7 @@ body {
 .custom-scrollbar-hide {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+}
+.font-poppins {
+	font-family: 'Poppins', sans-serif;
 }
