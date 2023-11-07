@@ -1,6 +1,5 @@
 import DuaPageLayout from '@/components/DuaPageLayout';
 import { Metadata } from 'next';
-import Image from 'next/image'
 
 export const metadata: Metadata = {
 	title: 'Dua & Ruqyah | All Duas Collection',
@@ -8,7 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <DuaPageLayout/>
-  )
+	return <DuaPageLayout />;
 }
