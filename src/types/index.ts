@@ -38,12 +38,14 @@ export type IDua = {
 };
 
 export type IDuasList = {
-	sub_category_name: string;
+	subcat_name_en: string;
+	subcat_id: number,
 	dua_list: IDua[];
 };
 
 export type IChildCategoryProps = {
 	subCat: IDuasList;
+	cat_id: number
 };
 export type IDuaProps = {
 	dua: IDua;

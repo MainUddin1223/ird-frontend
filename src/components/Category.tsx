@@ -4,6 +4,7 @@ import ChildCategory from './ChildCategory';
 import { ICategoryProps } from '@/types';
 import categoryLogo from '@/assets/005-fever.png';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Category = ({
 	category,
@@ -12,6 +13,7 @@ const Category = ({
 	setActive,
 	setDuasList,
 }: ICategoryProps) => {
+	const router = useRouter();
 	const [subCategory, setSubCategory] = useState([]);
 	useEffect(() => {
 		if (index == active) {
@@ -23,8 +25,10 @@ const Category = ({
 		fetch(`http://localhost:8000/duas/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
-				setSubCategory(data.formateSunCategoryData);
-				setDuasList(data.formateSunCategoryData);
+				setSubCategory(data.data);
+				setDuasList(data.data);
+				setActive(index);
+				router.push(`?cat=${id}`);
 			})
 			.catch((err) => console.error(err));
 	};
@@ -34,7 +38,6 @@ const Category = ({
 			<div
 				onClick={() => {
 					handleSubCategory(category.cat_id);
-					setActive(index);
 				}}
 				className={`${
 					index === active && 'bg-accent'
@@ -69,7 +72,7 @@ const Category = ({
 			{index === active ? (
 				<ol className="relative border-dotted border-l border-primary dark:border-gray-700 my-2 ml-4">
 					{subCategory.map((subCat, i) => (
-						<ChildCategory key={i} subCat={subCat} />
+						<ChildCategory key={i} subCat={subCat} cat_id={category.cat_id} />
 					))}
 				</ol>
 			) : (

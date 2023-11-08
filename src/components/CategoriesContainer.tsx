@@ -11,7 +11,9 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 	useEffect(() => {
 		fetch(`http://localhost:8000/category`)
 			.then((res) => res.json())
-			.then((data) => setCategories(data.data))
+			.then((data) => {
+				setCategories(data.data);
+			})
 			.catch((err) => console.error(err));
 	}, []);
 
