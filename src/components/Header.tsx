@@ -28,7 +28,7 @@ const Header = () => {
 					<input
 						type="text"
 						placeholder="Search by Dua Name"
-						className="w-[100%] rounded-[10px] text-base p-4 bg-accent xl:bg-bgColor "
+						className="w-[100%] rounded-[10px] text-base p-4 bg-accent xl:bg-bgColor  focus:outline-primary  "
 					/>
 					<div className="absolute right-1 top-1 bg-bgColor xl:bg-accent w-54 p-3 rounded-md">
 						<Image src={searchIcon} width={24} height={24} alt="search-icon" />
