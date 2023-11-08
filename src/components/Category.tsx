@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import ChildCategory from './ChildCategory';
 import { ICategoryProps } from '@/types';
+import categoryLogo from '@/assets/005-fever.png';
+import Image from 'next/image';
 
 const Category = ({
 	category,
@@ -11,7 +13,6 @@ const Category = ({
 	setDuasList,
 }: ICategoryProps) => {
 	const [subCategory, setSubCategory] = useState([]);
-
 	useEffect(() => {
 		if (index == active) {
 			handleSubCategory(category.cat_id);
@@ -27,15 +28,43 @@ const Category = ({
 			})
 			.catch((err) => console.error(err));
 	};
+
 	return (
-		<div
-			onClick={() => {
-				handleSubCategory(category.cat_id);
-				setActive(index);
-			}}
-		>
-			<h1>{category?.cat_name_en}</h1>
-			<h1>{category?.cat_id}</h1>
+		<div>
+			<div
+				onClick={() => {
+					handleSubCategory(category.cat_id);
+					setActive(index);
+				}}
+				className={`${
+					index === active && 'bg-accent'
+				} cursor-pointer hover:bg-accent rounded-[10px] p-[10px] flex justify-between items-center border-b-2 border-accent border-opacity-50`}
+			>
+				<div className="flex gap-2 items-center">
+					<div className="bg-[#CFE0E5] p-[10px] rounded-[10px]">
+						<Image
+							src={categoryLogo}
+							width={40}
+							height={40}
+							alt="category_logo"
+						/>
+					</div>
+					<div>
+						<h3
+							className={` ${
+								index === active && 'text-primary '
+							} font-semibold text-[16px]`}
+						>
+							{category?.cat_name_en}
+						</h3>
+						<h5>Subcategory: {category?.no_of_subcat}</h5>
+					</div>
+				</div>
+				<div>
+					<p>{category?.no_of_dua}</p>
+					<p>Duas</p>
+				</div>
+			</div>
 
 			{index === active ? (
 				<h1>

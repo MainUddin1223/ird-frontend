@@ -16,34 +16,38 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 	}, []);
 
 	return (
-		<div className=" xl:h-[650px] w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] overflow-y-scroll">
-			<div className="bg-primary">
-				<h1 className="text-center p-4 text-[17px] font-semibold text-bgColor">
-					Categories
-				</h1>
-			</div>
-			<div className="m-5 relative">
-				<input
-					type="text"
-					placeholder="Search by Categories"
-					className="w-full p-[15px] pl-[50px] shadow rounded-[7px] border-[1.5px] focus:outline-none focus:border-primary"
-				/>
-				<div className="absolute top-4 left-4">
-					<Image src={searchIcon} width={24} height={24} alt="search-icon " />
+		<div className=" xl:h-[650px] w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] ">
+			<div>
+				<div className="bg-primary rounded-t-[10px]">
+					<h1 className="text-center p-4 text-[17px] font-semibold text-bgColor">
+						Categories
+					</h1>
+				</div>
+				<div className="m-5 relative">
+					<input
+						type="text"
+						placeholder="Search by Categories"
+						className="w-full p-[15px] pl-[50px] shadow rounded-[7px] border-[1.5px] focus:outline-none focus:border-primary"
+					/>
+					<div className="absolute top-4 left-4">
+						<Image src={searchIcon} width={24} height={24} alt="search-icon " />
+					</div>
 				</div>
 			</div>
-			<div>
-				{categories.map((category, index) => (
-					<div key={index} className="p-8">
-						<Category
-							category={category}
-							index={index}
-							active={active}
-							setActive={setActive}
-							setDuasList={setDuasList}
-						/>
-					</div>
-				))}
+			<div className="xl:h-[450px] custom-scrollbar-hide bg-bgColor rounded-[10px] overflow-y-scroll">
+				<div className="m-5">
+					{categories.map((category, index) => (
+						<div key={index}>
+							<Category
+								category={category}
+								index={index}
+								active={active}
+								setActive={setActive}
+								setDuasList={setDuasList}
+							/>
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);
