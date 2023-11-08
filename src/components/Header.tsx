@@ -18,13 +18,13 @@ const Header = () => {
 						alt="logo"
 						className=" mx-auto cursor-pointer  "
 					/>
-					<h1 className="text-2xl font-semibold font-poppins">
+					<h1 className="text-2xl hidden md:block font-semibold font-poppins">
 						Dua and Ruqyah
 					</h1>
 				</div>
 			</div>
-			<div className="w-1/2 xl:w-[630px] flex justify-between items-center">
-				<div className="relative w-3/4">
+			<div className="md:w-1/2 xl:w-[630px] flex justify-between items-center">
+				<div className="hidden md:block relative w-3/4">
 					<input
 						type="text"
 						placeholder="Search by Dua Name"
@@ -34,7 +34,7 @@ const Header = () => {
 						<Image src={searchIcon} width={24} height={24} alt="search-icon" />
 					</div>
 				</div>
-				<div className="flex items-center">
+				<div className="flex items-center gap-4">
 					<div>
 						<Image
 							src={profileIcon}

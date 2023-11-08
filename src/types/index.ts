@@ -39,13 +39,13 @@ export type IDua = {
 
 export type IDuasList = {
 	subcat_name_en: string;
-	subcat_id: number,
+	subcat_id: number;
 	dua_list: IDua[];
 };
 
 export type IChildCategoryProps = {
 	subCat: IDuasList;
-	cat_id: number
+	cat_id: number;
 };
 export type IDuaProps = {
 	dua: IDua;

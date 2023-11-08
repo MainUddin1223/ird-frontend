@@ -18,7 +18,7 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 	}, []);
 
 	return (
-		<div className=" xl:h-[650px] w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] ">
+		<div className="hidden md:block h-[80vh] w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] ">
 			<div>
 				<div className="bg-primary rounded-t-[10px]">
 					<h1 className="text-center p-4 text-[17px] font-semibold text-bgColor">
@@ -36,7 +36,7 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 					</div>
 				</div>
 			</div>
-			<div className="xl:h-[450px] custom-scrollbar-hide bg-bgColor rounded-[10px] overflow-y-scroll">
+			<div className="h-[60vh] xl:h-[450px] custom-scrollbar-hide bg-bgColor rounded-[10px] overflow-y-scroll">
 				<div className="m-5">
 					{categories.map((category, index) => (
 						<div key={index}>
