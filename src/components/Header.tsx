@@ -5,7 +5,7 @@ import logo from '@/assets/logo .png';
 import searchIcon from '@/assets/Vector.png';
 const Header = () => {
 	return (
-		<div className="flex justify-between bg-bgColor xl:bg-[#f7f8fa] px-[30px] xl:px-0">
+		<div className="flex justify-between items-center py-6 bg-bgColor xl:bg-[#f7f8fa] px-[30px] xl:px-0">
 			<div className="">
 				<h1 className="text-2xl font-semibold font-poppins hidden xl:block">
 					Dua page

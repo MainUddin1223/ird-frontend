@@ -28,6 +28,7 @@ export type IDua = {
     dua_name_bn: string;
     dua_name_en: string;
     top_en: string;
+    bottom_en: string,
     dua_arabic: string;
     clean_arabic: string;
     transliteration_en: string;

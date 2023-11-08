@@ -60,18 +60,18 @@ const Category = ({
 						<h5>Subcategory: {category?.no_of_subcat}</h5>
 					</div>
 				</div>
-				<div>
-					<p>{category?.no_of_dua}</p>
+				<div className="border-l-2 text-center pl-4 border-[#E2E2E2]">
+					<p className="text-[#393939] font-semibold">{category?.no_of_dua}</p>
 					<p>Duas</p>
 				</div>
 			</div>
 
 			{index === active ? (
-				<h1>
+				<ol className="relative border-dotted border-l border-primary dark:border-gray-700 my-2 ml-4">
 					{subCategory.map((subCat, i) => (
 						<ChildCategory key={i} subCat={subCat} />
 					))}
-				</h1>
+				</ol>
 			) : (
 				<></>
 			)}
