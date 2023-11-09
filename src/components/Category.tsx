@@ -17,6 +17,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 			handleSubCategory(category.cat_id, category?.cat_name_en);
 		}
 	}, []);
+
 	const handleSubCategory = (id: number, cat: string) => {
 		const prevId = Number(cat_id);
 		if (prevId !== category.cat_id) {
@@ -30,6 +31,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 				.catch((err) => console.error(err));
 		}
 	};
+
 	return (
 		<div>
 			<div
