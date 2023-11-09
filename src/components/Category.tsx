@@ -6,29 +6,22 @@ import categoryLogo from '@/assets/005-fever.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-const Category = ({
-	category,
-	index,
-	active,
-	setActive,
-	setDuasList,
-}: ICategoryProps) => {
+const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 	const router = useRouter();
 	const [subCategory, setSubCategory] = useState([]);
 	useEffect(() => {
 		if (index == active) {
-			handleSubCategory(category.cat_id);
+			handleSubCategory(category.cat_id, category?.cat_name_en);
 		}
 	}, []);
 
-	const handleSubCategory = (id: number) => {
+	const handleSubCategory = (id: number, cat: string) => {
 		fetch(`http://localhost:8000/duas/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setSubCategory(data.data);
-				setDuasList(data.data);
 				setActive(index);
-				router.push(`?cat=${id}`);
+				router.push(`/${cat}?cat=${id}`);
 			})
 			.catch((err) => console.error(err));
 	};
@@ -37,7 +30,7 @@ const Category = ({
 		<div>
 			<div
 				onClick={() => {
-					handleSubCategory(category.cat_id);
+					handleSubCategory(category.cat_id, category?.cat_name_en);
 				}}
 				className={`${
 					index === active && 'bg-accent'

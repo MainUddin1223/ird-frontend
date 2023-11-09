@@ -1,10 +1,10 @@
+'use client';
 import { useState, useEffect } from 'react';
 import searchIcon from '@/assets/Vector.png';
 import Image from 'next/image';
 import Category from './Category';
-import { ICategoriesContainerProps } from '@/types';
 
-const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
+const CategoriesContainer = () => {
 	const [categories, setCategories] = useState([]);
 	const [active, setActive] = useState(0);
 
@@ -18,7 +18,7 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 	}, []);
 
 	return (
-		<div className="hidden md:block h-[80vh] w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] ">
+		<div className="hidden w-1/3 md:block h-[80vh] lg:w-[430px] custom-scrollbar-hide bg-bgColor rounded-[10px] ">
 			<div>
 				<div className="bg-primary rounded-t-[10px]">
 					<h1 className="text-center p-4 text-[17px] font-semibold text-bgColor">
@@ -45,7 +45,6 @@ const CategoriesContainer = ({ setDuasList }: ICategoriesContainerProps) => {
 								index={index}
 								active={active}
 								setActive={setActive}
-								setDuasList={setDuasList}
 							/>
 						</div>
 					))}

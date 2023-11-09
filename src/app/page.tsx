@@ -1,4 +1,3 @@
-import DuaPageLayout from '@/components/DuaPageLayout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-	return <DuaPageLayout />;
+	return <div>Home</div>;
 }
