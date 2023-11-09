@@ -20,7 +20,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 	const handleSubCategory = (id: number, cat: string) => {
 		const prevId = Number(cat_id);
 		if (prevId !== category.cat_id) {
-			fetch(`http://localhost:8000/duas/${id}`)
+			fetch(`http://localhost:8000/sub-category/${id}`)
 				.then((res) => res.json())
 				.then((data) => {
 					setSubCategory(data.data);
@@ -30,7 +30,6 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 				.catch((err) => console.error(err));
 		}
 	};
-
 	return (
 		<div>
 			<div
@@ -38,7 +37,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 					handleSubCategory(category.cat_id, category?.cat_name_en);
 				}}
 				className={`${
-					index === active && 'bg-accent'
+					Number(cat_id) === category.cat_id && 'bg-accent'
 				} cursor-pointer hover:bg-accent rounded-[10px] p-[10px] flex justify-between items-center border-b-2 border-accent border-opacity-50`}
 			>
 				<div className="flex gap-2 items-center">
@@ -53,7 +52,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 					<div>
 						<h3
 							className={` ${
-								index === active && 'text-primary '
+								Number(cat_id) === category.cat_id && 'text-primary '
 							} font-semibold text-[16px]`}
 						>
 							{category?.cat_name_en}
@@ -67,7 +66,7 @@ const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 				</div>
 			</div>
 
-			{index === active ? (
+			{Number(cat_id) === category.cat_id ? (
 				<ol className="relative border-dotted border-l border-primary dark:border-gray-700 my-2 ml-4">
 					{subCategory.map((subCat, i) => (
 						<ChildCategory key={i} subCat={subCat} cat_id={category.cat_id} />

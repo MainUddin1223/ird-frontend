@@ -1,12 +1,13 @@
-'use client';
 import { IChildCategoryProps, IDua } from '@/types';
-import { useState } from 'react';
 import arrow from '@/assets/free_icon_1 (1).svg';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const ChildCategory = ({ subCat, cat_id }: IChildCategoryProps) => {
-	const [showList, setShowList] = useState(false);
+	const searchParams = useSearchParams();
+	const subcat_params = searchParams.get('subcat');
+	const dua_id = searchParams.get('dua');
+	const subcat_id = Number(subcat_params);
 	const router = useRouter();
 	return (
 		<li className="mb-10 ml-4">
@@ -14,14 +15,15 @@ const ChildCategory = ({ subCat, cat_id }: IChildCategoryProps) => {
 			<div>
 				<div
 					onClick={() => {
-						setShowList(!showList);
 						router.push(`?cat=${cat_id}&subcat=${subCat.subcat_id}`);
 					}}
-					className={`font-medium cursor-pointer ${showList && 'text-primary'}`}
+					className={`font-medium cursor-pointer ${
+						subcat_id === subCat.subcat_id && 'text-primary'
+					}`}
 				>
 					<h1>{subCat?.subcat_name_en}</h1>
 				</div>
-				{showList &&
+				{subcat_id === subCat.subcat_id &&
 					subCat?.dua_list.map((dua: IDua, index: number) => (
 						<div
 							key={index}
@@ -33,7 +35,13 @@ const ChildCategory = ({ subCat, cat_id }: IChildCategoryProps) => {
 							}
 						>
 							<Image src={arrow} width={16} height={12} alt="arrow" />
-							<p className="my-2">{dua.dua_name_en}</p>
+							<p
+								className={`my-2 ${
+									Number(dua_id) === dua.dua_id && 'text-primary'
+								}`}
+							>
+								{dua.dua_name_en}
+							</p>
 						</div>
 					))}
 			</div>
