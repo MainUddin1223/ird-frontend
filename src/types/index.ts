@@ -42,6 +42,10 @@ export type IDuasList = {
 	dua_list: IDua[];
 };
 
+export type IDuaSectionProps = {
+	duaSection: IDuasList;
+};
+
 export type IChildCategoryProps = {
 	subCat: IDuasList;
 	cat_id: number;
@@ -49,6 +53,6 @@ export type IChildCategoryProps = {
 export type IDuaProps = {
 	dua: IDua;
 };
-export type IDuasCOntainerProps = {
+export type IDuasContainerProps = {
 	duasList: IDuasList[];
 };

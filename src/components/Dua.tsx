@@ -1,10 +1,26 @@
+'use client';
 import { IDuaProps } from '@/types';
 import duaIcon from '@/assets/allah 1 (Traced) (1).png';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 const Dua = ({ dua }: IDuaProps) => {
+	const searchParams = useSearchParams();
+	const duaId = dua.dua_id.toString();
+	const duaParamsId = searchParams.get('dua');
+
+	useEffect(() => {
+		if (duaParamsId) {
+			const elementToScroll = document.getElementById(duaParamsId);
+			if (elementToScroll) {
+				elementToScroll.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+	}, [duaParamsId]);
+
 	return (
-		<div className=" bg-bgColor py-3.5 px-7 rounded-[10px] my-2">
+		<div id={duaId} className=" bg-bgColor py-3.5 px-7 rounded-[10px] my-2">
 			<div className="flex font-semibold text-primary items-center gap-2">
 				<Image src={duaIcon} width={35} height={35} alt="dua_logo" />
 				<p>

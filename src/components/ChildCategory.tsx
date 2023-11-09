@@ -9,6 +9,7 @@ const ChildCategory = ({ subCat, cat_id }: IChildCategoryProps) => {
 	const dua_id = searchParams.get('dua');
 	const subcat_id = Number(subcat_params);
 	const router = useRouter();
+
 	return (
 		<li className="mb-10 ml-4">
 			<div className="absolute w-2 h-2 bg-gray-200 rounded-full mt-1.5 -left-[5px]  bg-primary"></div>

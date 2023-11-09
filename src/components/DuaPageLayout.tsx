@@ -13,7 +13,6 @@ const DuaPageLayout = ({ children }: { children: React.ReactNode }) => {
 				<div className="flex">
 					<CategoriesContainer />
 					<div className="flex-1">{children}</div>
-
 					<div className="hidden 2xl:block">
 						<SettingsContainer />
 					</div>
