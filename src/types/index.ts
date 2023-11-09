@@ -15,7 +15,6 @@ export type ICategoryProps = {
 	index: number;
 	active: number;
 	setActive: (active: number) => void;
-	setDuasList: (duasList: IDuasList[]) => void;
 };
 
 export type IDua = {
