@@ -4,26 +4,31 @@ import ChildCategory from './ChildCategory';
 import { ICategoryProps } from '@/types';
 import categoryLogo from '@/assets/005-fever.png';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const Category = ({ category, index, active, setActive }: ICategoryProps) => {
 	const router = useRouter();
 	const [subCategory, setSubCategory] = useState([]);
+	const searchParams = useSearchParams();
+	const cat_id = searchParams.get('cat');
+
 	useEffect(() => {
 		if (index == active) {
 			handleSubCategory(category.cat_id, category?.cat_name_en);
 		}
 	}, []);
-
 	const handleSubCategory = (id: number, cat: string) => {
-		fetch(`http://localhost:8000/duas/${id}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setSubCategory(data.data);
-				setActive(index);
-				router.push(`/${cat}?cat=${id}`);
-			})
-			.catch((err) => console.error(err));
+		const prevId = Number(cat_id);
+		if (prevId !== category.cat_id) {
+			fetch(`http://localhost:8000/duas/${id}`)
+				.then((res) => res.json())
+				.then((data) => {
+					setSubCategory(data.data);
+					setActive(index);
+					router.push(`/${cat}?cat=${id}`);
+				})
+				.catch((err) => console.error(err));
+		}
 	};
 
 	return (
